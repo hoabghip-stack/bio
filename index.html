@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NGUYỄN TRUNG TÍN • ULTRA BIO 2026</title>
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<style>
+
+/* =========================
+RESET
+========================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html,body{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  background:#020617;
+  font-family:'Inter',sans-serif;
+  color:white;
+}
+
+/* =========================
+SPACE BG
+========================= */
+
+#bg{
+  position:fixed;
+  inset:0;
+  z-index:0;
+}
+
+/* =========================
+AURORA
+========================= */
+
+.aurora{
+  position:fixed;
+  inset:-20%;
+  z-index:1;
+  pointer-events:none;
+
+  background:
+  radial-gradient(circle at 20% 20%, rgba(168,85,247,.18), transparent 30%),
+  radial-gradient(circle at 80% 80%, rgba(59,130,246,.18), transparent 30%),
+  radial-gradient(circle at center, rgba(0,255,255,.08), transparent 40%);
+
+  filter:blur(100px);
+
+  animation:auroraMove 10s ease infinite alternate;
+}
+
+@keyframes auroraMove{
+
+  0%{
+    transform:translateX(-5%) translateY(-5%);
+  }
+
+  100%{
+    transform:translateX(5%) translateY(5%);
+  }
+
+}
+
+/* =========================
+WRAP
+========================= */
+
+.wrap{
+  position:relative;
+  z-index:5;
+
+  width:100%;
+  height:100%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:20px;
+}
+
+/* =========================
+CARD
+========================= */
+
+.card{
+
+  position:relative;
+
+  width:100%;
+  max-width:430px;
+
+  border-radius:40px;
+
+  overflow:hidden;
+
+  background:rgba(255,255,255,.06);
+
+  backdrop-filter:blur(40px);
+
+  border:1px solid rgba(255,255,255,.12);
+
+  padding:40px 28px;
+
+  transform-style:preserve-3d;
+
+  box-shadow:
+  0 0 80px rgba(0,0,0,.45),
+  0 0 140px rgba(168,85,247,.12);
+
+}
+
+/* =========================
+RGB BORDER
+========================= */
+
+.card::before{
+
+  content:'';
+
+  position:absolute;
+
+  inset:-2px;
+
+  border-radius:42px;
+
+  padding:2px;
+
+  background:
+  linear-gradient(
+    45deg,
+    #00ffff,
+    #a855f7,
+    #3b82f6,
+    #00ffff
+  );
+
+  background-size:300% 300%;
+
+  animation:borderMove 8s linear infinite;
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+  -webkit-mask-composite:xor;
+
+  mask-composite:exclude;
+}
+
+@keyframes borderMove{
+
+  0%{
+    background-position:0% 50%;
+  }
+
+  100%{
+    background-position:300% 50%;
+  }
+
+}
+
+/* =========================
+HOLOGRAM
+========================= */
+
+.holo{
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+  linear-gradient(
+    120deg,
+    transparent 20%,
+    rgba(255,255,255,.12) 50%,
+    transparent 80%
+  );
+
+  transform:translateX(-100%);
+
+  animation:holoMove 6s linear infinite;
+}
+
+@keyframes holoMove{
+
+  to{
+    transform:translateX(250%);
+  }
+
+}
+
+/* =========================
+LINH VẬT
+========================= */
+
+.pet{
+
+  position:absolute;
+
+  width:70px;
+  height:70px;
+
+  border-radius:50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:30px;
+
+  background:
+  linear-gradient(
+    135deg,
+    rgba(255,255,255,.15),
+    rgba(168,85,247,.2)
+  );
+
+  backdrop-filter:blur(14px);
+
+  border:1px solid rgba(255,255,255,.15);
+
+  box-shadow:
+  0 0 25px rgba(168,85,247,.25);
+
+  z-index:15;
+}
+
+/* PET 1 */
+
+.pet1{
+  animation:orbit1 12s linear infinite;
+}
+
+/* PET 2 */
+
+.pet2{
+  animation:orbit2 15s linear infinite;
+}
+
+/* PET 3 */
+
+.pet3{
+  animation:orbit3 18s linear infinite;
+}
+
+/* PET 4 */
+
+.pet4{
+  animation:orbit4 20s linear infinite;
+}
+
+/* ORBITS */
+
+@keyframes orbit1{
+
+  from{
+    transform:
+    rotate(0deg)
+    translateX(260px)
+    rotate(0deg);
+  }
+
+  to{
+    transform:
+    rotate(360deg)
+    translateX(260px)
+    rotate(-360deg);
+  }
+
+}
+
+@keyframes orbit2{
+
+  from{
+    transform:
+    rotate(360deg)
+    translateX(220px)
+    rotate(-360deg);
+  }
+
+  to{
+    transform:
+    rotate(0deg)
+    translateX(220px)
+    rotate(0deg);
+  }
+
+}
+
+@keyframes orbit3{
+
+  from{
+    transform:
+    rotate(0deg)
+    translateY(240px)
+    rotate(0deg);
+  }
+
+  to{
+    transform:
+    rotate(-360deg)
+    translateY(240px)
+    rotate(360deg);
+  }
+
+}
+
+@keyframes orbit4{
+
+  from{
+    transform:
+    rotate(-360deg)
+    translateX(300px)
+    rotate(360deg);
+  }
+
+  to{
+    transform:
+    rotate(0deg)
+    translateX(300px)
+    rotate(0deg);
+  }
+
+}
+
+/* =========================
+AVATAR
+========================= */
+
+.avatar-wrap{
+  position:relative;
+  width:120px;
+  height:120px;
+  margin:auto;
+}
+
+.avatar{
+
+  width:100%;
+  height:100%;
+
+  border-radius:50%;
+
+  padding:4px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #00ffff,
+    #a855f7,
+    #3b82f6
+  );
+
+  animation:hueRotate 6s linear infinite;
+}
+
+.avatar-inner{
+
+  width:100%;
+  height:100%;
+
+  border-radius:50%;
+
+  background:#0f172a;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:42px;
+  font-weight:700;
+
+  font-family:'Orbitron',sans-serif;
+
+  position:relative;
+
+  overflow:hidden;
+}
+
+.avatar-inner::before{
+
+  content:'';
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+  linear-gradient(
+    transparent,
+    rgba(255,255,255,.12),
+    transparent
+  );
+
+  animation:scan 4s linear infinite;
+}
+
+@keyframes scan{
+
+  0%{
+    transform:translateY(-100%);
+  }
+
+  100%{
+    transform:translateY(300%);
+  }
+
+}
+
+@keyframes hueRotate{
+
+  from{
+    filter:hue-rotate(0deg);
+  }
+
+  to{
+    filter:hue-rotate(360deg);
+  }
+
+}
+
+/* =========================
+TEXT
+========================= */
+
+.name{
+
+  margin-top:26px;
+
+  text-align:center;
+
+  font-size:32px;
+
+  font-family:'Orbitron',sans-serif;
+
+  text-shadow:
+  0 0 25px rgba(168,85,247,.5);
+
+}
+
+.user{
+
+  margin-top:10px;
+
+  text-align:center;
+
+  color:#94a3b8;
+
+  font-size:14px;
+
+}
+
+.desc{
+
+  margin-top:18px;
+
+  text-align:center;
+
+  line-height:1.8;
+
+  color:#d4d4d8;
+
+  font-size:14px;
+
+}
+
+/* =========================
+TAGS
+========================= */
+
+.tags{
+
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+
+  margin-top:26px;
+
+}
+
+.tag{
+
+  padding:10px 16px;
+
+  border-radius:999px;
+
+  background:rgba(255,255,255,.05);
+
+  border:1px solid rgba(255,255,255,.08);
+
+  font-size:12px;
+
+  transition:.3s;
+
+}
+
+.tag:hover{
+
+  transform:translateY(-4px);
+
+  box-shadow:
+  0 0 20px rgba(168,85,247,.25);
+
+}
+
+/* =========================
+LINKS
+========================= */
+
+.links{
+
+  margin-top:32px;
+
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+
+}
+
+.link{
+
+  position:relative;
+
+  overflow:hidden;
+
+  display:flex;
+  align-items:center;
+  gap:16px;
+
+  text-decoration:none;
+
+  padding:18px;
+
+  border-radius:22px;
+
+  background:rgba(255,255,255,.05);
+
+  border:1px solid rgba(255,255,255,.08);
+
+  color:white;
+
+  transition:.35s;
+
+}
+
+.link::before{
+
+  content:'';
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+  linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.15),
+    transparent
+  );
+
+  transform:translateX(-100%);
+}
+
+.link:hover::before{
+  animation:shine 1s;
+}
+
+@keyframes shine{
+
+  to{
+    transform:translateX(250%);
+  }
+
+}
+
+.link:hover{
+
+  transform:
+  perspective(1000px)
+  rotateX(8deg)
+  rotateY(-8deg)
+  scale(1.03);
+
+  box-shadow:
+  0 0 35px rgba(168,85,247,.2);
+
+}
+
+.icon{
+
+  width:50px;
+  height:50px;
+
+  border-radius:18px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:24px;
+
+  background:rgba(255,255,255,.08);
+
+}
+
+.link-info{
+  flex:1;
+}
+
+.link-title{
+  font-weight:600;
+}
+
+.link-sub{
+  margin-top:4px;
+  font-size:12px;
+  color:#94a3b8;
+}
+
+/* =========================
+FOOTER
+========================= */
+
+.footer{
+
+  margin-top:30px;
+
+  text-align:center;
+
+  color:#64748b;
+
+  font-size:12px;
+
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:600px){
+
+  .card{
+    padding:30px 22px;
+  }
+
+  .name{
+    font-size:26px;
+  }
+
+  .pet{
+    width:55px;
+    height:55px;
+    font-size:24px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<canvas id="bg"></canvas>
+
+<div class="aurora"></div>
+
+<div class="wrap">
+
+  <div class="card" id="card">
+
+    <!-- LINH VẬT -->
+
+    <div class="pet pet1">👾</div>
+
+    <div class="pet pet2">🐱</div>
+
+    <div class="pet pet3">🚀</div>
+
+    <div class="pet pet4">🤖</div>
+
+    <!-- HOLOGRAM -->
+
+    <div class="holo"></div>
+
+    <!-- AVATAR -->
+
+    <div class="avatar-wrap">
+
+      <div class="avatar">
+
+        <div class="avatar-inner">
+          NT
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- TEXT -->
+
+    <div class="name">
+      NGUYỄN TRUNG TÍN
+    </div>
+
+    <div class="user">
+      @nguyentrungtin • Việt Nam 🚀
+    </div>
+
+    <div class="desc">
+      Future Developer • Cyberpunk UI • Creative Designer • Ultra Bio 2026
+    </div>
+
+    <!-- TAGS -->
+
+    <div class="tags">
+
+      <div class="tag">🚀 Future</div>
+
+      <div class="tag">🎨 Design</div>
+
+      <div class="tag">👾 AI</div>
+
+      <div class="tag">🌌 Space</div>
+
+    </div>
+
+    <!-- LINKS -->
+
+    <div class="links">
+
+      <!-- FACEBOOK -->
+      <a href="https://www.facebook.com/share/1cByapXQ6k/?mibextid=wwXIfr"
+      class="link"
+      target="_blank">
+
+        <div class="icon">
+          <i class="ti ti-brand-facebook"></i>
+        </div>
+
+        <div class="link-info">
+
+          <div class="link-title">
+            Facebook
+          </div>
+
+          <div class="link-sub">
+            Follow Facebook của tôi
+          </div>
+
+        </div>
+
+      </a>
+
+      <!-- ZALO -->
+      <a href="https://zalo.me/0356417909"
+      class="link"
+      target="_blank">
+
+        <div class="icon">
+          <i class="ti ti-message-circle"></i>
+        </div>
+
+        <div class="link-info">
+
+          <div class="link-title">
+            Zalo
+          </div>
+
+          <div class="link-sub">
+            Nhắn tin trực tiếp
+          </div>
+
+        </div>
+
+      </a>
+
+      <!-- TELEGRAM -->
+      <a href="https://t.me/nguyentin099"
+      class="link"
+      target="_blank">
+
+        <div class="icon">
+          <i class="ti ti-brand-telegram"></i>
+        </div>
+
+        <div class="link-info">
+
+          <div class="link-title">
+            Telegram
+          </div>
+
+          <div class="link-sub">
+            @nguyentin099
+          </div>
+
+        </div>
+
+      </a>
+
+    </div>
+
+    <div class="footer">
+      ULTRA SCI-FI BIO • 2026 EDITION
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+/* =========================
+THREEJS SPACE
+========================= */
+
+const scene =
+new THREE.Scene();
+
+const camera =
+new THREE.PerspectiveCamera(
+75,
+window.innerWidth/window.innerHeight,
+0.1,
+1000
+);
+
+const renderer =
+new THREE.WebGLRenderer({
+  canvas:document.getElementById('bg'),
+  alpha:true
+});
+
+renderer.setSize(
+window.innerWidth,
+window.innerHeight
+);
+
+camera.position.z = 5;
+
+/* PARTICLES */
+
+const geometry =
+new THREE.BufferGeometry();
+
+const count = 3000;
+
+const positions =
+new Float32Array(count * 3);
+
+for(let i=0;i<count*3;i++){
+
+  positions[i] =
+  (Math.random() - .5) * 30;
+
+}
+
+geometry.setAttribute(
+'position',
+new THREE.BufferAttribute(
+positions,
+3
+)
+);
+
+const material =
+new THREE.PointsMaterial({
+
+  size:0.015,
+  color:'#ffffff',
+  transparent:true,
+  opacity:.8
+
+});
+
+const particles =
+new THREE.Points(
+geometry,
+material
+);
+
+scene.add(particles);
+
+/* MOUSE */
+
+let mouseX = 0;
+let mouseY = 0;
+
+document.addEventListener(
+'mousemove',
+(e)=>{
+
+  mouseX =
+  (e.clientX/window.innerWidth - .5);
+
+  mouseY =
+  (e.clientY/window.innerHeight - .5);
+
+});
+
+/* ANIMATE */
+
+function animate(){
+
+  requestAnimationFrame(animate);
+
+  particles.rotation.y += 0.0008;
+
+  particles.rotation.x += 0.0002;
+
+  camera.position.x +=
+  (mouseX * 2 - camera.position.x) * .03;
+
+  camera.position.y +=
+  (-mouseY * 2 - camera.position.y) * .03;
+
+  renderer.render(scene,camera);
+
+}
+
+animate();
+
+/* RESIZE */
+
+window.addEventListener(
+'resize',
+()=>{
+
+  camera.aspect =
+  window.innerWidth/window.innerHeight;
+
+  camera.updateProjectionMatrix();
+
+  renderer.setSize(
+    window.innerWidth,
+    window.innerHeight
+  );
+
+});
+
+/* =========================
+CARD 8D
+========================= */
+
+const card =
+document.getElementById('card');
+
+document.addEventListener(
+'mousemove',
+(e)=>{
+
+  const x =
+  (window.innerWidth/2 - e.pageX)/30;
+
+  const y =
+  (window.innerHeight/2 - e.pageY)/30;
+
+  card.style.transform =
+  `
+  rotateY(${x}deg)
+  rotateX(${-y}deg)
+  translateZ(20px)
+  `;
+
+});
+
+document.addEventListener(
+'mouseleave',
+()=>{
+
+  card.style.transform =
+  `
+  rotateY(0deg)
+  rotateX(0deg)
+  `;
+
+});
+
+</script>
+
+</body>
+</html>
